@@ -21,7 +21,7 @@ public class DriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.DriveSubsystem.ArcadeDrive(Robot.OI.getSpeed() *0.6, Robot.OI.getTurn()*0.6);
+    Robot.DriveSubsystem.ArcadeDrive(Robot.OI.getSpeed(), Robot.OI.getTurn());
   }
 
   // Called once the command ends or is interrupted.
