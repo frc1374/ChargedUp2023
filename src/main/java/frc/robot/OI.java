@@ -7,22 +7,20 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 //import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
-import edu.wpi.first.wpilibj.GenericHID;
-import frc.robot.commands.ClimberCommandMove;
-import frc.robot.commands.ConveyorBeltCommandForward;
-import frc.robot.commands.ConveyorBeltCommandReverse;
-import frc.robot.commands.ConveyorBeltCommandStop;
-import frc.robot.commands.ConveyorBeltCommandToggle;
-import frc.robot.commands.DriveCommand;
+// import frc.robot.commands.IntakeCommand;
+
+// import frc.robot.commands.ClimberCommandMove;
+// import frc.robot.commands.ConveyorBeltCommandForward;
+// import frc.robot.commands.ConveyorBeltCommandReverse;
+// import frc.robot.commands.ConveyorBeltCommandStop;
+// import frc.robot.commands.ConveyorBeltCommandToggle;
 // import frc.robot.commands.IntakeCommandStart;
 // import frc.robot.commands.IntakeCommandStop;
 // import frc.robot.commands.IntakeCommandToggle;
 // import frc.robot.commands.intakeCommandSpin;
 // import frc.robot.commands.intakeOut;
 // import frc.robot.commands.intakeIn;
-import frc.robot.subsystems.ConveyorBeltSubsystem;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
+// import frc.robot.subsystems.ConveyorBeltSubsystem;
 // import frc.robot.commands.intakeCommandSpin;
 
 
@@ -77,19 +75,21 @@ public class OI {
     operatorYButton = new JoystickButton(operator, 4);
     operatorLbump = new JoystickButton(operator, 5);
     operatorRbump = new JoystickButton(operator, 6);
+
+    // driverAButton.whileTrue(new IntakeCommand());
     
     //Trigger endConveyorDetector = new Trigger(() -> conveyor.getBeamBrakeSensor);
     
-    driverAButton.onTrue(new ClimberCommandMove(Robot.climber));
-    // driverRbump.onTrue(new IntakeCommandToggle(Robot.Intake));
-    driverLbump.onTrue(new ConveyorBeltCommandToggle(Robot.conveyor));
+    // driverAButton.onTrue(new ClimberCommandMove(Robot.climber));
+    // // driverRbump.onTrue(new IntakeCommandToggle(Robot.Intake));
+    // driverLbump.onTrue(new ConveyorBeltCommandToggle(Robot.conveyor));
 
 
     
-    driverXButton.onTrue(new ConveyorBeltCommandForward(Robot.conveyor));
-    driverXButton.onTrue(new ConveyorBeltCommandStop(Robot.conveyor));
-    driverYButton.onTrue(new ConveyorBeltCommandReverse(Robot.conveyor));
-    driverYButton.onTrue(new ConveyorBeltCommandStop(Robot.conveyor));
+    // driverXButton.onTrue(new ConveyorBeltCommandForward(Robot.conveyor));
+    // driverXButton.onTrue(new ConveyorBeltCommandStop(Robot.conveyor));
+    // driverYButton.onTrue(new ConveyorBeltCommandReverse(Robot.conveyor));
+    // driverYButton.onTrue(new ConveyorBeltCommandStop(Robot.conveyor));
     
 
     // operatorXButton.onTrue(new intakeOut(Robot.Intake));

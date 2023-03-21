@@ -40,6 +40,7 @@ public class DriveSubsystem extends SubsystemBase {
     L1controller = L1motor.getPIDController();
     L1motor.setOpenLoopRampRate(rampValue);
     L1motor.burnFlash();
+    
 
     L2motor = new CANSparkMax(RobotMap.Left2, MotorType.kBrushless);
     L2encoder = L2motor.getEncoder();
@@ -68,9 +69,6 @@ public class DriveSubsystem extends SubsystemBase {
     R2motor.set(right);
   }
 
-  
-
-  
   public double speedRamp(double speed){
     //return 0.2*(Math.pow(speed, 3))+0.8*(Math.pow(speed, 2));
     

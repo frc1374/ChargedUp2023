@@ -4,71 +4,41 @@
 
 // package frc.robot.subsystems;
 
-// import edu.wpi.first.wpilibj.DoubleSolenoid;
-// import edu.wpi.first.wpilibj.PneumaticsModuleType;
-
-// // import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-// // import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 // import com.revrobotics.CANSparkMax;
-// import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 // import com.revrobotics.RelativeEncoder;
-// import edu.wpi.first.wpilibj2.command.SubsystemBase;
+// import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 // import frc.robot.RobotMap;
 
-// import edu.wpi.first.wpilibj.DoubleSolenoid;
-// import edu.wpi.first.wpilibj.Solenoid;
-
-// import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-// import edu.wpi.first.wpilibj2.command.WaitCommand;
+// import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
 // public class IntakeSubsystem extends SubsystemBase {
-//      // Put methods for controlling this subsystem
-//     // here. Call these from Commands.
-    
-//     //public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
 
-//     TalonSRX intake;
-//     DoubleSolenoid intakeArm;
+//   CANSparkMax intakeMotor;
+//   RelativeEncoder intakeEncoder;
+//   Boolean toggle = true;
 
-//     //double speed = 0.3;
-    
-//     public IntakeSubsystem(){
-//         intake = new TalonSRX(RobotMap.IntakeM);
-//         intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 2);
-//         //intakeArm.set(Value.k);
-//     }
-    
-//     public void intakeInitialize() {
-//         //intakeArm.set(Value.kForward);
-//         intakeArm.set(Value.kForward);
-//         //intake.set(speed);
-//     }
+//   /** Creates a new IntakeSubsystem. */
+//   public IntakeSubsystem() {
+//     intakeMotor = new CANSparkMax(RobotMap.intakeMotor, MotorType.kBrushless);
+//     intakeMotor.setInverted(true);
+//   }
 
-//     public void intakeRetract(){
-//         intakeArm.set(Value.kReverse);
-//     }  
-    
-//     public void intakeSpin(double speed){
-//         intake.set(TalonSRXControlMode.PercentOutput, speed);  
+//   public void intakeSpeed(double speed) {
+//     intakeMotor.set(speed);
+
+//   }
+
+//   public void intakeReset() {
+//     toggle = !toggle;
+//   }
+
+//   public Boolean toggleForward() {
+//     if (toggle) {
+//       return true;
+//     } else {
+//       return false;
 //     }
 
-     
-//     //Not being used currently
-//     /** 
-//     public void intakeToggle() {
-//         intakeArm.toggle();
-//     }
-//     */
-
-  
-    
-
-
-    
-//     @Override
-//     public void periodic() {
-//       // This method will be called once per scheduler run
-//     }
-
+//   }
 // }
