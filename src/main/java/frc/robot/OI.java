@@ -6,9 +6,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.IntakeCloseCommand;
 // import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeOpenCommand;
+import frc.robot.commands.IntakeOpenCommand;
 
 // import frc.robot.commands.ClimberCommandMove;
 // import frc.robot.commands.ConveyorBeltCommandForward;
@@ -81,31 +82,8 @@ public class OI {
     operatorRightTrigger = new JoystickButton(operator, 5);
     operatorLeftTrigger = new JoystickButton(operator, 6);
 
-    operatorXButton.whileTrue(new IntakeCommand());
-
-
-    // driverAButton.whileTrue(new IntakeCommand());
-    
-    //Trigger endConveyorDetector = new Trigger(() -> conveyor.getBeamBrakeSensor);
-    
-    // driverAButton.onTrue(new ClimberCommandMove(Robot.climber));
-    // // driverRbump.onTrue(new IntakeCommandToggle(Robot.Intake));
-    // driverLbump.onTrue(new ConveyorBeltCommandToggle(Robot.conveyor));
-
-
-    
-    // driverXButton.onTrue(new ConveyorBeltCommandForward(Robot.conveyor));
-    // driverXButton.onTrue(new ConveyorBeltCommandStop(Robot.conveyor));
-    // driverYButton.onTrue(new ConveyorBeltCommandReverse(Robot.conveyor));
-    // driverYButton.onTrue(new ConveyorBeltCommandStop(Robot.conveyor));
-    
-
-    // operatorXButton.onTrue(new intakeOut(Robot.Intake));
-    // operatorYButton.onTrue(new intakeIn(Robot.Intake));
-
-    // operatorLbump.onTrue(new intakeCommandSpin(Robot.Intake));
-    // operatorRbump.onTrue(new IntakeCommandStop(Robot.Intake));
-
+    operatorXButton.onTrue(new IntakeOpenCommand());
+    operatorYButton.onTrue(new IntakeCloseCommand());
 
   }
 

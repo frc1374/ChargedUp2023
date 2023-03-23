@@ -11,7 +11,8 @@ import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.ArmCommand;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeOpenCommand;
+import frc.robot.commands.IntakeCloseCommand;
 
 
 /**
@@ -30,8 +31,8 @@ public class Robot extends TimedRobot {
   public static ArmCommand ArmCommand = new ArmCommand();
 
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
-  public static IntakeCommand IntakeCommand = new IntakeCommand();
-
+  public static IntakeOpenCommand IntakeOpenCommand = new IntakeOpenCommand();
+  public static IntakeCloseCommand IntakeCloseCommand = new IntakeCloseCommand();
   
   
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
