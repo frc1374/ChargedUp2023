@@ -6,8 +6,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-//import edu.wpi.first.wpilibj.buttons.JoystickButton;
-// import frc.robot.commands.IntakeCommand;
+// import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeCommand;
 
 // import frc.robot.commands.ClimberCommandMove;
 // import frc.robot.commands.ConveyorBeltCommandForward;
@@ -76,6 +77,13 @@ public class OI {
     operatorLbump = new JoystickButton(operator, 5);
     operatorRbump = new JoystickButton(operator, 6);
 
+    
+    operatorRightTrigger = new JoystickButton(operator, 5);
+    operatorLeftTrigger = new JoystickButton(operator, 6);
+
+    operatorXButton.whileTrue(new IntakeCommand());
+
+
     // driverAButton.whileTrue(new IntakeCommand());
     
     //Trigger endConveyorDetector = new Trigger(() -> conveyor.getBeamBrakeSensor);
@@ -101,8 +109,6 @@ public class OI {
 
   }
 
-  
-
   // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
   public double getSpeed() {
     if (Math.abs(driver.getLeftTriggerAxis() - driver.getRightTriggerAxis()) > 0.04){
@@ -110,7 +116,6 @@ public class OI {
     else
       return 0.0;
 
-    
   }
 
   // method that allows for joystick control to determine turns to left/right
@@ -120,6 +125,14 @@ public class OI {
     } else {
       return 0.0;
     }
+  }
+
+  public double getArmSpeed() {
+    if (Math.abs(operator.getLeftTriggerAxis() - operator.getRightTriggerAxis()) > 0.04){
+      return operator.getLeftTriggerAxis() - operator.getRightTriggerAxis();}
+    else
+      return 0.0;
+
   }
 
 }

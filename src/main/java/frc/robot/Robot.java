@@ -6,13 +6,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.commands.DriveCommand;
-// import frc.robot.subsystems.ArmSubsystem;
+import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
-// import frc.robot.commands.ArmCommand;
-// import frc.robot.subsystems.IntakeSubsystem;
-// import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.ArmCommand;
+import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.commands.IntakeCommand;
 
 
 /**
@@ -27,11 +26,11 @@ public class Robot extends TimedRobot {
 
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static DriveCommand DriveCommand = new DriveCommand();
-  // public static ArmSubsystem ArmSubsystem = new ArmSubsystem();
-  // public static ArmCommand ArmCommand = new ArmCommand();
+  public static ArmSubsystem ArmSubsystem = new ArmSubsystem();
+  public static ArmCommand ArmCommand = new ArmCommand();
 
-  // public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
-  // public static IntakeCommand IntakeCommand = new IntakeCommand();
+  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
+  public static IntakeCommand IntakeCommand = new IntakeCommand();
 
   
   
@@ -57,6 +56,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     commandScheduler.run();
     DriveCommand.schedule();
+    ArmCommand.schedule();
   }
 
   /** This function is called once when the robot is disabled. */

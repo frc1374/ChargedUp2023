@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
@@ -11,6 +12,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.CANSparkMax.SoftLimitDirection;
 
 public class DriveSubsystem extends SubsystemBase {
   /** Creates a new DriveSubsystem. */
@@ -63,10 +65,10 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void TankDrive(double left, double right) {
-    L1motor.set(-left);
-    L2motor.set(-left);
-    R1motor.set(right);
-    R2motor.set(right);
+    L1motor.set(left);
+    L2motor.set(left);
+    R1motor.set(-right);
+    R2motor.set(-right);
   }
 
   public double speedRamp(double speed){
@@ -84,6 +86,11 @@ public class DriveSubsystem extends SubsystemBase {
   
   
   public void ArcadeDrive(double speed, double turn) {  
+    SmartDashboard.putNumber("L1", L1encoder.getPosition());
+    SmartDashboard.putNumber("L2", L2encoder.getPosition());
+    SmartDashboard.putNumber("R1", R1encoder.getPosition());
+    SmartDashboard.putNumber("R2", R2encoder.getPosition());
+
     speed = speedRamp(speed);
     turn = speedRamp(turn);
     turn = turn * 0.75;
