@@ -12,7 +12,6 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
-import com.revrobotics.CANSparkMax.SoftLimitDirection;
 
 public class DriveSubsystem extends SubsystemBase {
   /** Creates a new DriveSubsystem. */
@@ -34,7 +33,7 @@ public class DriveSubsystem extends SubsystemBase {
 
   public DriveSubsystem() {
 
-    double rampValue = 0.3; // Set the time in seconds for ramp up value (acceleration curve)
+    double rampValue = 0.5; // Set the time in seconds for ramp up value (acceleration curve)
 
 
     L1motor = new CANSparkMax(RobotMap.Left1, MotorType.kBrushless);
@@ -62,6 +61,12 @@ public class DriveSubsystem extends SubsystemBase {
     R2controller = R2motor.getPIDController();
     R2motor.setOpenLoopRampRate(rampValue);
     R2motor.burnFlash();
+
+    L1encoder.setPosition(0.0);
+    L2encoder.setPosition(0.0);
+    R1encoder.setPosition(0.0);
+    R2encoder.setPosition(0.0);
+
   }
 
   public void TankDrive(double left, double right) {

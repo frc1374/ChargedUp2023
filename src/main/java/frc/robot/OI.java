@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.IntakeCloseCommand;
 // import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.IntakeOpenCommand;
-import frc.robot.commands.IntakeOpenCommand;
 
 // import frc.robot.commands.ClimberCommandMove;
 // import frc.robot.commands.ConveyorBeltCommandForward;

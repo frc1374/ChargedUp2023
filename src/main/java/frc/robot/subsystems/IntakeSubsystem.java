@@ -22,12 +22,12 @@ public class IntakeSubsystem extends SubsystemBase {
   /** Creates a new IntakeSubsystem. */
   public IntakeSubsystem() {
     intakeMotor = new CANSparkMax(RobotMap.Intake, MotorType.kBrushless);
-    intakeMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
-    intakeMotor.setSoftLimit(SoftLimitDirection.kForward, (float)10.0);
-    intakeMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
-    intakeMotor.setSoftLimit(SoftLimitDirection.kReverse, (float)0.0);
+    // intakeMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
+    // intakeMotor.setSoftLimit(SoftLimitDirection.kForward, (float)10.0);
+    // intakeMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
+    // intakeMotor.setSoftLimit(SoftLimitDirection.kReverse, (float)0.0);
     
-    intakeMotor.burnFlash();
+    // intakeMotor.burnFlash();
 
     intakeEncoder = intakeMotor.getEncoder();
     intakeEncoder.setPosition(0.0);
@@ -36,7 +36,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
   public void intakeSpeed(double speed) {
     SmartDashboard.putNumber("intake motor", intakeEncoder.getPosition());
-   
+    
     if(Math.abs(intakeEncoder.getPosition()) < 10.0) {
       intakeMotor.set(speed);
     } else {

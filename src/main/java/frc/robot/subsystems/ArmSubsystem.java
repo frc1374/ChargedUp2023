@@ -25,7 +25,7 @@ public class ArmSubsystem extends SubsystemBase {
 
   public ArmSubsystem() {
 
-    double rampValue = 0.3; // Set the time in seconds for ramp up value (acceleration curve)
+    double rampValue = 0.1; // Set the time in seconds for ramp up value (acceleration curve)
 
 
     L1ArmMotor = new CANSparkMax(RobotMap.ArmLeft, MotorType.kBrushless);
@@ -39,7 +39,6 @@ public class ArmSubsystem extends SubsystemBase {
     R1ArmController = R1ArmMotor.getPIDController();
     R1ArmMotor.setOpenLoopRampRate(rampValue);
     R1ArmMotor.burnFlash();
-
   }
 
   public void TankDrive(double left, double right) {

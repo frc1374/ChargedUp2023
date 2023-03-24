@@ -12,7 +12,7 @@ public class IntakeOpenCommand extends CommandBase {
   /** Creates a new IntakeCommand. */
   public IntakeOpenCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.IntakeSubsystem);
+    addRequirements(Robot.intakeSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -22,14 +22,14 @@ public class IntakeOpenCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.IntakeSubsystem.intakeSpeed(0.3);
+    Robot.intakeSubsystem.intakeSpeed(0.3);
 
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.IntakeSubsystem.intakeReset();
+    Robot.intakeSubsystem.intakeReset();
   }
 
   // Returns true when the command should end.

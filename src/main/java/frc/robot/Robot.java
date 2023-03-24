@@ -29,11 +29,9 @@ public class Robot extends TimedRobot {
   public static DriveCommand DriveCommand = new DriveCommand();
   public static ArmSubsystem ArmSubsystem = new ArmSubsystem();
   public static ArmCommand ArmCommand = new ArmCommand();
-
-  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
-  public static IntakeOpenCommand IntakeOpenCommand = new IntakeOpenCommand();
-  public static IntakeCloseCommand IntakeCloseCommand = new IntakeCloseCommand();
-  
+  public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  public static IntakeCloseCommand intakeCloseCommand = new IntakeCloseCommand();
+  public static IntakeOpenCommand intakeOpenCommand = new IntakeOpenCommand();
   
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
 
