@@ -7,25 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.IntakeCloseCommand;
-// import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.IntakeOpenCommand;
-
-// import frc.robot.commands.ClimberCommandMove;
-// import frc.robot.commands.ConveyorBeltCommandForward;
-// import frc.robot.commands.ConveyorBeltCommandReverse;
-// import frc.robot.commands.ConveyorBeltCommandStop;
-// import frc.robot.commands.ConveyorBeltCommandToggle;
-// import frc.robot.commands.IntakeCommandStart;
-// import frc.robot.commands.IntakeCommandStop;
-// import frc.robot.commands.IntakeCommandToggle;
-// import frc.robot.commands.intakeCommandSpin;
-// import frc.robot.commands.intakeOut;
-// import frc.robot.commands.intakeIn;
-// import frc.robot.subsystems.ConveyorBeltSubsystem;
-// import frc.robot.commands.intakeCommandSpin;
-
-
-
 
 public class OI {
 
@@ -58,26 +40,19 @@ public class OI {
   /** Creates a new OI. */
   public OI() {
     
-
-    //Need edit: 1
-    driverAButton = new JoystickButton(driver, 1);
-    driverBButton = new JoystickButton(driver, 2);
-    driverXButton = new JoystickButton(driver, 3);
-    driverYButton = new JoystickButton(driver, 4);
-    driverLbump = new JoystickButton(driver, 5);
-    driverRbump = new JoystickButton(driver, 6);
+    // driverAButton = new JoystickButton(driver, 1);
+    // driverBButton = new JoystickButton(driver, 2);
+    // driverXButton = new JoystickButton(driver, 3);
+    // driverYButton = new JoystickButton(driver, 4);
+    // driverLbump = new JoystickButton(driver, 5);
+    // driverRbump = new JoystickButton(driver, 6);
 
     driverRightTrigger = new JoystickButton(driver, 5);
     driverLeftTrigger = new JoystickButton(driver, 6);
 
-    operatorAButton = new JoystickButton(operator, 1);
-    operatorBButton = new JoystickButton(operator, 2);
     operatorXButton = new JoystickButton(operator, 3);
     operatorYButton = new JoystickButton(operator, 4);
-    operatorLbump = new JoystickButton(operator, 5);
-    operatorRbump = new JoystickButton(operator, 6);
-
-    
+      
     operatorRightTrigger = new JoystickButton(operator, 5);
     operatorLeftTrigger = new JoystickButton(operator, 6);
 

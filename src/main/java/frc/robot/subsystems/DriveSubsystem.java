@@ -40,6 +40,7 @@ public class DriveSubsystem extends SubsystemBase {
     L1encoder = L1motor.getEncoder();
     L1controller = L1motor.getPIDController();
     L1motor.setOpenLoopRampRate(rampValue);
+    L1encoder.setPosition(0.0);
     L1motor.burnFlash();
     
 
@@ -47,6 +48,7 @@ public class DriveSubsystem extends SubsystemBase {
     L2encoder = L2motor.getEncoder();
     L2controller = L2motor.getPIDController();
     L2motor.setOpenLoopRampRate(rampValue);
+    L2encoder.setPosition(0.0);
     L2motor.burnFlash();
     
 
@@ -54,18 +56,15 @@ public class DriveSubsystem extends SubsystemBase {
     R1encoder = R1motor.getEncoder();
     R1controller = R1motor.getPIDController();
     R1motor.setOpenLoopRampRate(rampValue);
+    R1encoder.setPosition(0.0);
     R1motor.burnFlash();
 
     R2motor = new CANSparkMax(RobotMap.Right2, MotorType.kBrushless);
     R2encoder = R2motor.getEncoder();
     R2controller = R2motor.getPIDController();
     R2motor.setOpenLoopRampRate(rampValue);
-    R2motor.burnFlash();
-
-    L1encoder.setPosition(0.0);
-    L2encoder.setPosition(0.0);
-    R1encoder.setPosition(0.0);
     R2encoder.setPosition(0.0);
+    R2motor.burnFlash();
 
   }
 
@@ -76,10 +75,7 @@ public class DriveSubsystem extends SubsystemBase {
     R2motor.set(-right);
   }
 
-  public double speedRamp(double speed){
-    //return 0.2*(Math.pow(speed, 3))+0.8*(Math.pow(speed, 2));
-    
-    
+  public double speedRamp(double speed){ 
     if (speed > 0){
       return 0.2*(Math.pow(speed, 3))+0.8*(Math.pow(speed, 2));
 
@@ -91,10 +87,10 @@ public class DriveSubsystem extends SubsystemBase {
   
   
   public void ArcadeDrive(double speed, double turn) {  
-    SmartDashboard.putNumber("L1", L1encoder.getPosition());
-    SmartDashboard.putNumber("L2", L2encoder.getPosition());
-    SmartDashboard.putNumber("R1", R1encoder.getPosition());
-    SmartDashboard.putNumber("R2", R2encoder.getPosition());
+    SmartDashboard.putNumber("Drive L1", L1encoder.getPosition());
+    SmartDashboard.putNumber("Drive L2", L2encoder.getPosition());
+    SmartDashboard.putNumber("Drive R1", R1encoder.getPosition());
+    SmartDashboard.putNumber("Drive R2", R2encoder.getPosition());
 
     speed = speedRamp(speed);
     turn = speedRamp(turn);
