@@ -31,10 +31,11 @@ public class DriveSubsystem extends SubsystemBase {
     RelativeEncoder R2encoder;
     SparkMaxPIDController R2controller;
 
+    // RelativeEncoder driveEncoder;
   public DriveSubsystem() {
 
     double rampValue = 0.5; // Set the time in seconds for ramp up value (acceleration curve)
-
+   // driveEncoder = L1motor.getEncoder();
 
     L1motor = new CANSparkMax(RobotMap.Left1, MotorType.kBrushless);
     L1encoder = L1motor.getEncoder();
@@ -96,7 +97,35 @@ public class DriveSubsystem extends SubsystemBase {
     turn = speedRamp(turn);
     turn = turn * 0.75;
     TankDrive((speed) - turn, speed + turn);
+    // SmartDashboard.putNumber("drive encoder", driveEncoder.getPosition()); 
+  
+    
   }
+
+  public void driveReset(){
+    ArcadeDrive(0, 0);
+    L1encoder.setPosition(0);
+    L2encoder.setPosition(0);
+    R1encoder.setPosition(0);
+    R2encoder.setPosition(0);
+
+  }
+
+  public boolean driveEncoderLimitReached(double setpoint) {
+    double encoderPosition = Math.abs(L1encoder.getPosition());
+    if (encoderPosition >= setpoint) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // public void AutoTankDrive(double left, double right) {
+  //   L1motor.set(left);
+  //   L2motor.set(left);
+  //   R1motor.set(-right);
+  //   R2motor.set(-right);
+  // }
 
 
 }
