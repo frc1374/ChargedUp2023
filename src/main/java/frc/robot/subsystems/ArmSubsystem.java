@@ -33,12 +33,16 @@ public class ArmSubsystem extends SubsystemBase {
     L1ArmController = L1ArmMotor.getPIDController();
     L1ArmMotor.setOpenLoopRampRate(rampValue);
     L1ArmMotor.burnFlash();
+    L1ArmEncoder.setPosition(0.0);
+
     
     R1ArmMotor = new CANSparkMax(RobotMap.ArmRight, MotorType.kBrushless);
     R1ArmEncoder = R1ArmMotor.getEncoder();
     R1ArmController = R1ArmMotor.getPIDController();
     R1ArmMotor.setOpenLoopRampRate(rampValue);
     R1ArmMotor.burnFlash();
+    R1ArmEncoder.setPosition(0.0);
+
   }
 
   public void TankDrive(double left, double right) {
@@ -68,8 +72,16 @@ public class ArmSubsystem extends SubsystemBase {
     // turn = speedRamp(turn);
     // turn = turn * 0.75;
     TankDrive(speed, speed);
+
+
   }
+    public boolean armEncoderLimitReached(double setpoint) {
+      double encoderPosition = Math.abs(L1ArmEncoder.getPosition());
+      if (encoderPosition >= setpoint) {
+        return true;
+      } else {
+        return false;
+      }
 
-
-
+    }
 }

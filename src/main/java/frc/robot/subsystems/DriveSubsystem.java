@@ -98,7 +98,6 @@ public class DriveSubsystem extends SubsystemBase {
     turn = turn * 0.75;
     TankDrive((speed) - turn, speed + turn);
     // SmartDashboard.putNumber("drive encoder", driveEncoder.getPosition()); 
-  
     
   }
 
@@ -119,13 +118,5 @@ public class DriveSubsystem extends SubsystemBase {
       return false;
     }
   }
-
-  // public void AutoTankDrive(double left, double right) {
-  //   L1motor.set(left);
-  //   L2motor.set(left);
-  //   R1motor.set(-right);
-  //   R2motor.set(-right);
-  // }
-
 
 }

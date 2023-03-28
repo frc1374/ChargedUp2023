@@ -10,6 +10,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.subsystems.IntakeSubsystem;
 
 
 public class IntakeSubsystem extends SubsystemBase {
@@ -39,6 +40,16 @@ public class IntakeSubsystem extends SubsystemBase {
 
   public void intakeReset() {
     intakeEncoder.setPosition(0.0);
+  }
+
+  public boolean IntakeEncoderLimitReached(double setpoint) {
+    double encoderPosition = Math.abs(intakeEncoder.getPosition());
+    if (encoderPosition >= setpoint) {
+      return true;
+    } else {
+      return false;
+    }
+
   }
 
 }
