@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
@@ -17,28 +18,29 @@ import frc.robot.commands.ArmCommand;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.commands.Auto.AutoSequence;
 
-/**
- * The VM is configured to automatically run this class, and to call the functions corresponding to
- * each mode, as described in the TimedRobot documentation. If you change the name of this class or
- * the package after creating this project, you must also update the build.gradle file in the
- * project.
- */
+
+
 public class Robot extends TimedRobot {
  
   private AddressableLED led0;
 
   private AddressableLEDBuffer led0Buffer;
 
-  public static OI OI = new OI();
+  // private static final String kDefaultAuto = "Default";
+  // private static final String kCustomAuto = "My Auto";
+  // private String m_autoSelected;
+  // private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
+  public static OI OI = new OI();
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static DriveCommand DriveCommand = new DriveCommand();
   public static ArmSubsystem ArmSubsystem = new ArmSubsystem();
   public static ArmCommand ArmCommand = new ArmCommand();
   public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  CommandScheduler commandScheduler = CommandScheduler.getInstance();
+
   // public static LEDs LEDStrip;
   Command m_autoCommand = new AutoSequence();
-
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -53,6 +55,11 @@ public class Robot extends TimedRobot {
     led0.setLength(led0Buffer.getLength());
     led0.setData(led0Buffer);
     led0.start();
+
+    // m_chooser.setDefaultOption("Drive", "AutoDrive");
+    // m_chooser.addOption("DriveShoot", "AutoDriveandShoot");
+    
+    // SmartDashboard.putData("Auto choices", m_chooser);
 }
 
   @Override
@@ -68,6 +75,13 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     if(m_autoCommand != null)
+
+    // m_chooser.setDefaultOption("SideDrive", "AutoDrive");
+    // m_chooser.addOption("Auto", "AutoDriveandShoot");
+    
+    // SmartDashboard.putData("Auto choices", m_chooser);
+    
+
     {
       m_autoCommand.schedule();
     }

@@ -17,11 +17,11 @@ public class AutoSequence extends SequentialCommandGroup {
     double driveSpeed = 0.5;
     
     addCommands(
-    new AutoArm(0.5, 10),
-    new AutoIntake(0.5, 10),
-    new AutoArm(-driveSpeed, 0),
-    new AutoIntake(-driveSpeed, 0),
-    new AutoDrive(driveSpeed,0, 50));
-// lift arm, open intake, drop arm, close intake, drive
+    new AutoArm(driveSpeed, 10));
+    // new AutoIntake(0.5, 10),
+    // new AutoArm(-driveSpeed, 0),
+    // new AutoIntake(-driveSpeed, 0),
+    // new AutoDrive(driveSpeed,0, 50));
+
   }
 }
