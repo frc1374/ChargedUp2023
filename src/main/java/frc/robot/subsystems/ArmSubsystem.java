@@ -76,7 +76,7 @@ public class ArmSubsystem extends SubsystemBase {
 
   }
     public boolean armEncoderLimitReached(double setpoint) {
-      double encoderPosition = Math.abs(L1ArmEncoder.getPosition());
+      double encoderPosition = Math.abs(R1ArmEncoder.getPosition());
       if (encoderPosition >= setpoint) {
         return true;
       } else {

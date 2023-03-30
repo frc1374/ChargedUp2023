@@ -5,10 +5,12 @@
 package frc.robot.commands.Auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.commands.IntakeCloseCommand;
+import frc.robot.commands.IntakeOpenCommand;
 
 
 public class AutoSequence extends SequentialCommandGroup {
-  /** Creates a new AutoSequence. */
+  /* Creates a new AutoSequence. */
   public AutoSequence() {
 
     // FOR TIME BASED DRIVE
@@ -18,9 +20,9 @@ public class AutoSequence extends SequentialCommandGroup {
     
     addCommands(
     new AutoArm(driveSpeed, 10));
-    // new AutoIntake(0.5, 10),
-    // new AutoArm(-driveSpeed, 0),
-    // new AutoIntake(-driveSpeed, 0),
+    // new IntakeOpenCommand(),
+    // new AutoArm(driveSpeed, 10),
+    // new IntakeCloseCommand(),
     // new AutoDrive(driveSpeed,0, 50));
 
   }
