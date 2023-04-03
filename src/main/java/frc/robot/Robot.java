@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -40,7 +41,8 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
 
-
+  UsbCamera camera1;
+  UsbCamera camera2;
   // public static LEDs LEDStrip;
   Command m_autoCommand = new AutoSequence();
 
@@ -55,7 +57,14 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
-    CameraServer.startAutomaticCapture();
+    // CameraServer.startAutomaticCapture();
+    camera1 = CameraServer.startAutomaticCapture();
+    camera2 = CameraServer.startAutomaticCapture();
+    camera1.setFPS(15);
+    camera2.setFPS(12);
+    camera1.setResolution(320, 240);
+    camera2.setResolution(250, 200);
+
     led0 = new AddressableLED(0);
     led0Buffer = new AddressableLEDBuffer(60);
     led0.setLength(led0Buffer.getLength());
