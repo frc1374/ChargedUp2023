@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.CANSparkMax.SoftLimitDirection;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -23,6 +24,12 @@ public class IntakeSubsystem extends SubsystemBase {
   public IntakeSubsystem() {
     intakeMotor = new CANSparkMax(RobotMap.Intake, MotorType.kBrushless);
     intakeEncoder = intakeMotor.getEncoder();
+    
+    intakeMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
+    intakeMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
+    intakeMotor.setSoftLimit(SoftLimitDirection.kForward, (float)10);
+    intakeMotor.setSoftLimit(SoftLimitDirection.kReverse, (float)0);
+    
     intakeEncoder.setPosition(0.0);
 
   }

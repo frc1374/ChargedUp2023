@@ -13,17 +13,13 @@ public class AutoSequence extends SequentialCommandGroup {
   /* Creates a new AutoSequence. */
   public AutoSequence() {
 
-    // FOR TIME BASED DRIVE
-    // super(new AutoDrive(3));
-
-    double driveSpeed = 0.5;
+   // double driveSpeed = 0.5;
     
     addCommands(
-    new AutoArm(driveSpeed, 10));
-    // new IntakeOpenCommand(),
-    // new AutoArm(driveSpeed, 10),
-    // new IntakeCloseCommand(),
-    // new AutoDrive(driveSpeed,0, 50));
-
+    new AutoArm(-0.5, 3.44),
+    new IntakeOpenCommand(),
+    new AutoArm(0.5, 3.3),
+    new IntakeCloseCommand(),
+    new AutoDrive(0.70,0, 45.33));
   }
 }

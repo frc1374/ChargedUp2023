@@ -48,6 +48,7 @@ public class ArmSubsystem extends SubsystemBase {
   public void TankDrive(double left, double right) {
     L1ArmMotor.set(-left);
     R1ArmMotor.set(right);
+    
   }
 
   public double speedRamp(double speed){
@@ -72,16 +73,21 @@ public class ArmSubsystem extends SubsystemBase {
     // turn = speedRamp(turn);
     // turn = turn * 0.75;
     TankDrive(speed, speed);
-
-
   }
-    public boolean armEncoderLimitReached(double setpoint) {
-      double encoderPosition = Math.abs(R1ArmEncoder.getPosition());
-      if (encoderPosition >= setpoint) {
-        return true;
-      } else {
-        return false;
-      }
 
+
+  public void ArmReset(){
+    ArcadeDrive(0);
+    L1ArmEncoder.setPosition(0);
+    R1ArmEncoder.setPosition(0);
+  }
+
+  public boolean armEncoderLimitReached(double setpoint) {
+    double encoderPosition = Math.abs(R1ArmEncoder.getPosition());
+    if (encoderPosition >= setpoint) {
+      return true;
+    } else {
+      return false;
     }
+  }
 }
