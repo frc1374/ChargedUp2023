@@ -6,20 +6,14 @@
 
 // import edu.wpi.first.wpilibj2.command.CommandBase;
 // import frc.robot.Robot;
+// // import frc.robot.subsystems.IntakeSubsystem;
 // import frc.robot.subsystems.IntakeSubsystem;
 
-
-// public class AutoIntake extends CommandBase {
-
-//   double speed;
-//   double setpoint;
-
-//   /** Creates a new AutoDrive. */
-
-//   public AutoIntake(double speed, double setpoint) {
-//     addRequirements(Robot.ArmSubsystem);
-//     this.speed = speed;
-//     this.setpoint = setpoint;
+// public class AutoIntakeCloseCommand extends CommandBase {
+//   /** Creates a new IntakeCommand. */
+//   public AutoIntakeCloseCommand() {
+//     // Use addRequirements() here to declare subsystem dependencies.
+//     // addRequirements(Robot.intakeSubsystem);
 //   }
 
 //   // Called when the command is initially scheduled.
@@ -27,23 +21,26 @@
 //   public void initialize() {}
 
 
+
 //   // Called every time the scheduler runs while the command is scheduled.
 //   @Override
 //   public void execute() {
-//     Robot.intakeSubsystem.intakeSpeed(speed);
+//     Robot.intakeSubsystem.intakeSpeed(-0.3);
+
 //   }
 
 //   // Called once the command ends or is interrupted.
 //   @Override
 //   public void end(boolean interrupted) {
+//     Robot.intakeSubsystem.intakeReset();
 //   }
 
 //   // Returns true when the command should end.
 //   @Override
 //   public boolean isFinished() {
-//     if (Robot.intakeSubsystem.IntakeEncoderLimitReached(setpoint)) {
-//       return true;
+//     if (Robot.intakeSubsystem.limitSwitchClosed()) {
+//         return true;
+//       }
+//       return false;
 //     }
-//     return false;
-//   }
 // }

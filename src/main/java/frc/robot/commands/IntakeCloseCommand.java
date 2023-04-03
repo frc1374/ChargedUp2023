@@ -36,7 +36,7 @@ public class IntakeCloseCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Math.abs(IntakeSubsystem.intakeEncoder.getPosition()) >= 10) {
+    if (Math.abs(IntakeSubsystem.intakeEncoder.getPosition()) >= 12) {
       return true;
     }
     return false;

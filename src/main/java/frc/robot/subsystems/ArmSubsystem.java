@@ -72,7 +72,12 @@ public class ArmSubsystem extends SubsystemBase {
     // turn = speedRamp(turn);
     // turn = turn * 0.75;
     TankDrive(speed, speed);
+  }
 
+   public void ArmReset(){
+    ArcadeDrive(0);
+    L1ArmEncoder.setPosition(0);
+    R1ArmEncoder.setPosition(0);
 
   }
     public boolean armEncoderLimitReached(double setpoint) {
