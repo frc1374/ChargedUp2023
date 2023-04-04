@@ -26,13 +26,13 @@ public class IntakeSubsystem extends SubsystemBase {
   /** Creates a new IntakeSubsystem. */
   public IntakeSubsystem() {
     intakeMotor = new CANSparkMax(RobotMap.Intake, MotorType.kBrushless);
-    intakeLimitSwitch = new DigitalInput(RobotMap.intakeLimitSwitch);
+    // intakeLimitSwitch = new DigitalInput(RobotMap.intakeLimitSwitch);
     intakeEncoder = intakeMotor.getEncoder();
     
     intakeMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
     intakeMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
-    intakeMotor.setSoftLimit(SoftLimitDirection.kForward, (float)10);
-    intakeMotor.setSoftLimit(SoftLimitDirection.kReverse, (float)0);
+    intakeMotor.setSoftLimit(SoftLimitDirection.kForward, (float)24);
+    intakeMotor.setSoftLimit(SoftLimitDirection.kReverse, (float)-2);
     
     intakeEncoder.setPosition(0.0);
 
@@ -40,27 +40,26 @@ public class IntakeSubsystem extends SubsystemBase {
 
   public void intakeSpeed(double speed) {
     SmartDashboard.putNumber("intake motor", intakeEncoder.getPosition());
-    
-    if(Math.abs(intakeEncoder.getPosition()) < 10.0) {
-      intakeMotor.set(speed);
-    } else {
-      intakeMotor.set(0.0);
-    }
-
+    intakeMotor.set(speed);
+    // if(Math.abs(intakeEncoder.getPosition()) < 10.0) {
+    //   intakeMotor.set(speed);
+    // } else {
+    //   intakeMotor.set(0.0);
+    // }
   }
 
   public void intakeReset() {
     intakeEncoder.setPosition(0.0);
   }
 
-  public boolean IntakeEncoderLimitReached(double setpoint) {
-    double encoderPosition = Math.abs(intakeEncoder.getPosition());
-    if (encoderPosition >= setpoint) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // public boolean IntakeEncoderLimitReached(double setpoint) {
+  //   double encoderPosition = Math.abs(intakeEncoder.getPosition());
+  //   if (encoderPosition >= setpoint) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
 
   // limit switch code

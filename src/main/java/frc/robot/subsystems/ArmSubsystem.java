@@ -12,6 +12,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.CANSparkMax.SoftLimitDirection;
 
 public class ArmSubsystem extends SubsystemBase {
   /** Creates a new DriveSubsystem. */
@@ -32,6 +33,12 @@ public class ArmSubsystem extends SubsystemBase {
     L1ArmEncoder = L1ArmMotor.getEncoder();
     L1ArmController = L1ArmMotor.getPIDController();
     L1ArmMotor.setOpenLoopRampRate(rampValue);
+
+    L1ArmMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
+    L1ArmMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
+    L1ArmMotor.setSoftLimit(SoftLimitDirection.kForward, (float)3.5);
+    L1ArmMotor.setSoftLimit(SoftLimitDirection.kReverse, (float)0);
+
     L1ArmMotor.burnFlash();
     L1ArmEncoder.setPosition(0.0);
 
@@ -40,6 +47,12 @@ public class ArmSubsystem extends SubsystemBase {
     R1ArmEncoder = R1ArmMotor.getEncoder();
     R1ArmController = R1ArmMotor.getPIDController();
     R1ArmMotor.setOpenLoopRampRate(rampValue);
+
+    R1ArmMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
+    R1ArmMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
+    R1ArmMotor.setSoftLimit(SoftLimitDirection.kForward, (float)3.5);
+    R1ArmMotor.setSoftLimit(SoftLimitDirection.kReverse, (float)0);
+
     R1ArmMotor.burnFlash();
     R1ArmEncoder.setPosition(0.0);
 
