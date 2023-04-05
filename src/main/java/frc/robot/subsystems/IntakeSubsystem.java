@@ -21,7 +21,7 @@ public class IntakeSubsystem extends SubsystemBase {
   CANSparkMax intakeMotor;
   public static RelativeEncoder intakeEncoder;
   Boolean toggle = true;
-  DigitalInput intakeLimitSwitch;
+  // DigitalInput intakeLimitSwitch;
 
   /** Creates a new IntakeSubsystem. */
   public IntakeSubsystem() {

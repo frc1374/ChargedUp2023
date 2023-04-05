@@ -13,7 +13,7 @@ public class IntakeCloseCommand extends CommandBase {
   /** Creates a new IntakeCommand. */
   public IntakeCloseCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.intakeSubsystem);
+    addRequirements(Robot.IntakeSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -23,7 +23,7 @@ public class IntakeCloseCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.intakeSubsystem.intakeSpeed(-0.3);
+    Robot.IntakeSubsystem.intakeSpeed(-0.3);
 
   }
 
@@ -31,14 +31,14 @@ public class IntakeCloseCommand extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     // Robot.intakeSubsystem.intakeReset();
-    Robot.intakeSubsystem.intakeSpeed(0);
+    Robot.IntakeSubsystem.intakeSpeed(0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     if (IntakeSubsystem.intakeEncoder.getPosition() <= -2) {
-      Robot.intakeSubsystem.intakeSpeed(0);
+      Robot.IntakeSubsystem.intakeSpeed(0);
       return true;
     }
     return false;

@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.IntakeCloseCommand;
+import frc.robot.commands.IntakeCloseCubeCommand;
 import frc.robot.commands.IntakeOpenCommand;
 
 public class OI {
@@ -52,12 +53,14 @@ public class OI {
 
     operatorXButton = new JoystickButton(operator, 3);
     operatorYButton = new JoystickButton(operator, 4);
+    operatorBButton = new JoystickButton(operator, 2);
       
     operatorRightTrigger = new JoystickButton(operator, 5);
     operatorLeftTrigger = new JoystickButton(operator, 6);
 
     operatorXButton.onTrue(new IntakeOpenCommand());
-    operatorYButton.onTrue(new IntakeCloseCommand());
+    operatorBButton.onTrue(new IntakeCloseCommand());
+    operatorYButton.onTrue(new IntakeCloseCubeCommand());
 
   }
 

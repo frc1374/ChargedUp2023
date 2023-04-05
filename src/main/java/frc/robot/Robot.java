@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.IntakeCloseCommand;
+import frc.robot.commands.IntakeOpenCommand;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.ArmCommand;
@@ -33,13 +35,17 @@ public class Robot extends TimedRobot {
   // private String m_autoSelected;
   // private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
-  public static OI OI = new OI();
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static DriveCommand DriveCommand = new DriveCommand();
   public static ArmSubsystem ArmSubsystem = new ArmSubsystem();
   public static ArmCommand ArmCommand = new ArmCommand();
-  public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
+  public static IntakeOpenCommand IntakeOpenCommand = new IntakeOpenCommand();
+  public static IntakeCloseCommand IntakeCloseCommand = new IntakeCloseCommand();
+  public static OI OI = new OI();
+
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
+  
 
   UsbCamera camera1;
   UsbCamera camera2;

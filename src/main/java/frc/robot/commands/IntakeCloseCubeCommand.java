@@ -9,9 +9,9 @@ import frc.robot.Robot;
 // import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 
-public class IntakeOpenCommand extends CommandBase {
+public class IntakeCloseCubeCommand extends CommandBase {
   /** Creates a new IntakeCommand. */
-  public IntakeOpenCommand() {
+  public IntakeCloseCubeCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.IntakeSubsystem);
   }
@@ -23,24 +23,26 @@ public class IntakeOpenCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.IntakeSubsystem.intakeSpeed(0.3);
+    Robot.IntakeSubsystem.intakeSpeed(-0.3);
 
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.IntakeSubsystem.intakeSpeed(0);
     // Robot.intakeSubsystem.intakeReset();
+    Robot.IntakeSubsystem.intakeSpeed(0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (IntakeSubsystem.intakeEncoder.getPosition() >= 24) {
+    if (IntakeSubsystem.intakeEncoder.getPosition() <= 4) {
       Robot.IntakeSubsystem.intakeSpeed(0);
       return true;
     }
     return false;
   }
+  
+
 }
