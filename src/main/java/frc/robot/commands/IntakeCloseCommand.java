@@ -37,7 +37,7 @@ public class IntakeCloseCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (IntakeSubsystem.intakeEncoder.getPosition() <= -2) {
+    if (IntakeSubsystem.intakeEncoder.getPosition() <= -3.5) {
       Robot.IntakeSubsystem.intakeSpeed(0);
       return true;
     }

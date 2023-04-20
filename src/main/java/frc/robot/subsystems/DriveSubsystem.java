@@ -110,13 +110,8 @@ public class DriveSubsystem extends SubsystemBase {
 
   }
 
-  public boolean driveEncoderLimitReached(double setpoint) {
-    double encoderPosition = Math.abs(R1encoder.getPosition());
-    if (encoderPosition >= setpoint) {
-      return true;
-    } else {
-      return false;
-    }
+  public double getL1DriveEncoder() {
+    return L1encoder.getPosition();
   }
 
 }

@@ -13,17 +13,9 @@ import frc.robot.commands.IntakeOpenCommand;
 public class OI {
 
     public XboxController driver = new XboxController(0);
-    
     public XboxController operator = new XboxController(1);
-
+    
     //Driver Controls
-    public JoystickButton driverAButton;
-    public JoystickButton driverBButton;
-    public JoystickButton driverXButton;
-    public JoystickButton driverYButton;
-    public JoystickButton driverLbump;
-    public JoystickButton driverRbump;
-
     public JoystickButton driverLeftTrigger;
     public JoystickButton driverRightTrigger;
 
@@ -32,22 +24,13 @@ public class OI {
     public JoystickButton operatorBButton;
     public JoystickButton operatorXButton;
     public JoystickButton operatorYButton;
-    public JoystickButton operatorLbump;
-    public JoystickButton operatorRbump;
-
+    
     public JoystickButton operatorRightTrigger;
     public JoystickButton operatorLeftTrigger;
 
   /** Creates a new OI. */
   public OI() {
-    
-    // driverAButton = new JoystickButton(driver, 1);
-    // driverBButton = new JoystickButton(driver, 2);
-    // driverXButton = new JoystickButton(driver, 3);
-    // driverYButton = new JoystickButton(driver, 4);
-    // driverLbump = new JoystickButton(driver, 5);
-    // driverRbump = new JoystickButton(driver, 6);
-
+  
     driverRightTrigger = new JoystickButton(driver, 5);
     driverLeftTrigger = new JoystickButton(driver, 6);
 

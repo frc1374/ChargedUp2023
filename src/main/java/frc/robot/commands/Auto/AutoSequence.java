@@ -5,7 +5,8 @@
 package frc.robot.commands.Auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.IntakeCloseCommand;
+// import frc.robot.commands.IntakeCloseCommand;
+import frc.robot.commands.IntakeCloseCubeCommand;
 import frc.robot.commands.IntakeOpenCommand;
 
 
@@ -18,8 +19,9 @@ public class AutoSequence extends SequentialCommandGroup {
     addCommands(
     new AutoArm(-0.5, 3.44),
     new IntakeOpenCommand(),
-    new AutoArm(0.5, 3.3),
-    new IntakeCloseCommand(),
+    new AutoArm(0.5, 1),  
+    new IntakeCloseCubeCommand(),
+    new AutoArm(0.6, 2.3),
     new AutoDrive(0.70,0, 45.33));
   }
 }

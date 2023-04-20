@@ -6,6 +6,7 @@ package frc.robot.commands.Auto;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+// import frc.robot.subsystems.DriveSubsystem;
 
 public class AutoDrive extends CommandBase {
 
@@ -79,9 +80,9 @@ public class AutoDrive extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Robot.DriveSubsystem.driveEncoderLimitReached(setpoint)) {
+    if (Robot.DriveSubsystem.getL1DriveEncoder() >= setpoint) {
       return true;
-    }
+    } 
     return false;
   }
 }

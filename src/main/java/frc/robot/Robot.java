@@ -4,8 +4,8 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+// import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.AddressableLED;
@@ -21,7 +21,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.ArmCommand;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.commands.Auto.AutoSequence;
-import frc.robot.commands.Auto.FarSideAutoSequence;
+//import frc.robot.commands.Auto.FarSideAutoSequence;
 
 
 public class Robot extends TimedRobot {
@@ -52,10 +52,10 @@ public class Robot extends TimedRobot {
   // public static LEDs LEDStrip;
   Command m_autoCommand = new AutoSequence();
 
-  private static final String kDefaultAuto = "Default";
-  private static final String kCustomAuto = "My Auto";
-  private String m_autoSelected;
-  private final SendableChooser<String> m_chooser = new SendableChooser<>();
+  // private static final String kDefaultAuto = "Balance/Side";
+  // private static final String kCustomAuto = "Far Side";
+  // private String m_autoSelected;
+  // private final SendableChooser<String> m_chooser = new SendableChooser<>();
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -65,11 +65,11 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // CameraServer.startAutomaticCapture();
     camera1 = CameraServer.startAutomaticCapture();
-    camera2 = CameraServer.startAutomaticCapture();
+    // camera2 = CameraServer.startAutomaticCapture();
     camera1.setFPS(15);
-    camera2.setFPS(12);
-    camera1.setResolution(320, 240);
-    camera2.setResolution(250, 200);
+    // camera2.setFPS(10);
+    camera1.setResolution(250, 250);
+    // camera2.setResolution(160, 120);
 
     led0 = new AddressableLED(0);
     led0Buffer = new AddressableLEDBuffer(60);
@@ -77,9 +77,9 @@ public class Robot extends TimedRobot {
     led0.setData(led0Buffer);
     led0.start();
 
-    m_chooser.setDefaultOption("Balance/Side", kDefaultAuto);
-    m_chooser.addOption("Far Side", kCustomAuto);
-    SmartDashboard.putData("Auto choices", m_chooser);
+    // m_chooser.setDefaultOption("Balance/Side", kDefaultAuto);
+    // m_chooser.addOption("Far Side", kCustomAuto);
+    // SmartDashboard.putData("Auto choices", m_chooser);
 }
 
   @Override
@@ -96,8 +96,9 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     if(m_autoCommand != null)
 
-    m_autoSelected = m_chooser.getSelected();
-    System.out.println("Auto selected: " + m_autoSelected);
+    // m_autoSelected = m_chooser.getSelected();
+    // System.out.println("Auto selected: " + m_autoSelected);
+    //////// SmartDashboard.putData("Auto choices", m_chooser);
     
 
     {
@@ -108,16 +109,16 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-      case kCustomAuto:
-       new FarSideAutoSequence().schedule();
-        break;
-      case kDefaultAuto:
-      default:
-      new AutoSequence().schedule();
-        break;
+    // switch (m_autoSelected) {
+    //   case kCustomAuto:
+    //    new FarSideAutoSequence().schedule();
+    //     break;
+    //   case kDefaultAuto:
+    //   default:
+    //   new AutoSequence().schedule();
+    //     break;
     }
-  }
+
 
  /** This function is called once when teleop is enabled. */
   @Override

@@ -21,13 +21,13 @@ public class ArmCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.ArmSubsystem.ArcadeDrive(Robot.OI.getArmSpeed() * 0.8);
+    Robot.ArmSubsystem.ArmDrive(Robot.OI.getArmSpeed() * 0.8);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.ArmSubsystem.ArcadeDrive(0);
+    Robot.ArmSubsystem.ArmDrive(0);
   }
 
   // Returns true when the command should end.
